@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 import { Wrapper } from "./styles";
-import imgTest from "../../assets/imgs/luffy-not-found2.svg";
 import { Chapter } from "../../helpers/types/types";
 import { Link } from "react-router-dom";
+import api from "../../service/api";
+import { useEffect } from "react";
 
 const Card = (props: Chapter): JSX.Element => {
   const { id, title, chapter } = props;
+  const [coverImg, setCoverImg] = useState("");
 
+  async function getCoverImg(id) {
+    const { data } = await api.get(`/${id}`);
+    const { cover_images } = data;
+    setCoverImg(cover_images?.split("|")?.[0]);
+  }
+
+  useEffect(() => {
+   getCoverImg(id);
+  }, [])
   return (
     <>
       <Wrapper>
-        <img className="imgCover" src={imgTest} />
+        <img className="imgCover" src={coverImg} />
         <div className="cardContent">
           <h2>{chapter}</h2>
           <p>{title}</p>

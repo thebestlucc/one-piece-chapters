@@ -1,7 +1,8 @@
 import React from "react";
-import { splitCoverUrl } from "../../helpers/helpers";
+import { useHistory } from "react-router-dom";
 import { DetailedChapter } from "../../helpers/types/types";
 import { Wrapper } from "./styles";
+import { FiArrowLeftCircle } from "react-icons/fi";
 
 const Chapter = (props: DetailedChapter): JSX.Element => {
   const {
@@ -13,11 +14,11 @@ const Chapter = (props: DetailedChapter): JSX.Element => {
     explanation,
     summary,
   } = props;
-
+  const { goBack } = useHistory();
   const coverImages = cover_images?.split("|");
   return (
     <Wrapper>
-      <img className="cover" src={coverImages?.[1]} alt="Chapter Cover" />
+      <img className="cover" src={coverImages?.[0]} alt="Chapter Cover" />
       <div className="chapter-content">
         <div className="chapter">
           <h3>{chapter ? chapter : "Not available."}</h3>
@@ -42,6 +43,13 @@ const Chapter = (props: DetailedChapter): JSX.Element => {
           <h3>summary: </h3>
           <p>{summary ? summary : "Not available."}</p>
         </div>
+        <button className="back-btn">
+          <FiArrowLeftCircle
+            onClick={() => goBack()}
+            size={55}
+            color="#0b3075"
+          />
+        </button>
       </div>
     </Wrapper>
   );

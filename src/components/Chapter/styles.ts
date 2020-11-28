@@ -1,19 +1,13 @@
 import styled from "styled-components";
-import { px2vw } from '../../helpers/helpers';
+import { px2vw } from "../../helpers/helpers";
 
 export const Wrapper = styled.div`
-  max-width: 980px;
-  padding: 20px;
-  background: var(--softBlue);
-  -webkit-box-shadow: 0px 10px 23px -4px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: 0px 10px 23px -4px rgba(0, 0, 0, 0.53);
-  box-shadow: 0px 10px 23px -4px rgba(0, 0, 0, 0.53);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: width .25s ease-in-out;
-  transition: max-width .25s ease-in-out;
-  transition: display .25s ease-in-out;
+  transition: width 0.25s ease-in-out;
+  transition: max-width 0.25s ease-in-out;
+  transition: display 0.25s ease-in-out;
   .cover {
     grid-area: cover;
     max-width: 300px;
@@ -39,8 +33,15 @@ export const Wrapper = styled.div`
   }
   .summary {
     grid-area: summary;
+    
   }
-
+  .back-btn {
+    margin-top: 20px;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+  }
   h3 {
     font-family: "ONE PIECE";
     font-size: 1.75em;
@@ -50,15 +51,17 @@ export const Wrapper = styled.div`
     letter-spacing: 0.15em;
   }
   p {
-    font-size: 1.125em;
+    font-size: 1.45em;
     font-style: italic;
+    color: var(--brown);
   }
 
   @media (max-width: 739px) {
     display: flex;
     flex-direction: column;
     max-width: 80vw;
-    .chapter-content, h3 {
+    .chapter-content,
+    h3 {
       margin-top: 30px;
     }
   }

@@ -17,7 +17,7 @@ interface ChapterDetails {
 }
 const Details = (): JSX.Element => {
   const { id }: { id: string } = useParams();
-  const { goBack } = useHistory();
+
   const [detailedChapter, setDetailedChapter] = useState<ChapterDetails>({});
 
   async function getChapter() {
@@ -42,7 +42,6 @@ const Details = (): JSX.Element => {
             cover_images={detailedChapter?.cover_images}
             summary={detailedChapter?.summary}
           />
-          <button onClick={() => goBack()}>Voltar</button>
         </div>
       </Wrapper>
     </>
