@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'ONE PIECE';
+    src: url('ONEPIECE.eot');
+    src: url('ONEPIECE.eot?#iefix') format('embedded-opentype'),
+        url('ONEPIECE.woff2') format('woff2'),
+        url('ONEPIECE.woff') format('woff'),
+        url('ONEPIECE.ttf') format('truetype'),
+        url('ONEPIECE.svg#ONEPIECE') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
