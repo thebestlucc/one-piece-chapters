@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { DetailedChapter } from "../../helpers/types/types";
 import { Wrapper } from "./styles";
 import { FiArrowLeftCircle } from "react-icons/fi";
+import CoverNotFound from "../../assets/imgs/luffy-not-found2.svg";
 
 const Chapter = (props: DetailedChapter): JSX.Element => {
   const {
@@ -16,9 +17,14 @@ const Chapter = (props: DetailedChapter): JSX.Element => {
   } = props;
   const { goBack } = useHistory();
   const coverImages = cover_images?.split("|");
+
   return (
     <Wrapper>
-      <img className="cover" src={coverImages?.[0]} alt="Chapter Cover" />
+      <img
+        className="cover"
+        src={coverImages?.[0] ? coverImages?.[0] : CoverNotFound}
+        alt="Chapter Cover"
+      />
       <div className="chapter-content">
         <div className="chapter">
           <h3>{chapter ? chapter : "Not available."}</h3>

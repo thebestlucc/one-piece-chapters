@@ -19,6 +19,7 @@ const Details = (): JSX.Element => {
   const { id }: { id: string } = useParams();
 
   const [detailedChapter, setDetailedChapter] = useState<ChapterDetails>({});
+  const [coverImg, setCoverImg] = useState("");
 
   async function getChapter() {
     const { data } = await api.get(`/${id}`);

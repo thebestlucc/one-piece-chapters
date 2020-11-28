@@ -4,6 +4,7 @@ import { Chapter } from "../../helpers/types/types";
 import { Link } from "react-router-dom";
 import api from "../../service/api";
 import { useEffect } from "react";
+import CoverNotFound from '../../assets/imgs/luffy-not-found.svg';
 
 const Card = (props: Chapter): JSX.Element => {
   const { id, title, chapter } = props;
@@ -21,7 +22,7 @@ const Card = (props: Chapter): JSX.Element => {
   return (
     <>
       <Wrapper>
-        <img className="imgCover" src={coverImg} />
+        <img className="imgCover" src={coverImg ? coverImg : CoverNotFound} />
         <div className="cardContent">
           <h2>{chapter}</h2>
           <p>{title}</p>
